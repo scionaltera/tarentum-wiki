@@ -1,16 +1,11 @@
 version: 0.2
 
-env:
-  parameter-store:
-    DOCKER_HUB_USERNAME: "docker-hub-username"
-    DOCKER_HUB_PASSWORD: "docker-hub-password"
-
 phases:
-      - docker login -u ${DOCKER_HUB_USERNAME} -p ${DOCKER_HUB_PASSWORD}
   build:
     commands:
-      - docker build -t scionaltera/tarentum-wiki:latest -f Dockerfile .
-      - docker tag scionaltera/tarentum-wiki:latest
+      - docker build -t tarentum-wiki:latest -f Dockerfile .
+      - docker tag tarentum-wiki:latest 726009275047.dkr.ecr.us-west-2.amazonaws.com/tarentum-wiki:latest
+
   post_build:
     commands:
-      - docker push scionaltera/tarentum-wiki:latest
+      - docker push 726009275047.dkr.ecr.us-west-2.amazonaws.com/tarentum-wiki:latest
