@@ -12,7 +12,7 @@ phases:
   post_build:
     commands:
       - docker push 726009275047.dkr.ecr.us-west-2.amazonaws.com/tarentum-wiki:latest
-      - printf '[{"name":"tarentum-wiki","imageUri":"%s"}]' 726009275047.dkr.ecr.us-west-2.amazonaws.com/tarentum-wiki:latest > imagedefinitions.json
+      - printf '[{"name":"tarentum","imageUri":"%s"}]' 726009275047.dkr.ecr.us-west-2.amazonaws.com/tarentum-wiki:latest > imagedefinitions.json
 
 artifacts:
   files: imagedefinitions.json
